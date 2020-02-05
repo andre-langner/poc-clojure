@@ -1,0 +1,9 @@
+#!/bin/bash
+
+[ -z "$1" ] && PORT=3000 || PORT=$1
+
+./stop
+
+echo "Running server..."
+docker run -d -p $PORT:3000 --name 9d85bdd8-dd32-11e9-a410-00155d380115 poc-clojure/authorizer:latest
+echo "Server is running at http://127.0.0.1:"$PORT

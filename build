@@ -1,0 +1,19 @@
+#!/bin/bash
+
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+GRAY='\033[0;37m'
+NC='\033[0m'
+
+echo -e "${GRAY}Testing...${NC}"
+if lein test authorizer.handler.request_test; then
+  echo -e "${GREEN}Tests successful!${NC}"
+  echo -e "${GRAY}Building...${NC}"
+  if docker build --quiet -t poc-clojure/authorizer .; then
+     echo -e "${GREEN}Build successful!${NC}"
+  else
+    echo -e "${GREEN}Build fail!${NC}"
+  fi
+else
+  echo -e "${RED}Tests fail${NC}"
+fi

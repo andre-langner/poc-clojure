@@ -1,0 +1,7 @@
+#!/bin/bash
+
+echo "Stoping service..."
+docker stop 9d85bdd8-dd32-11e9-a410-00155d380115 > /dev/null 2>&1
+echo "Removing docker container..."
+docker rm 9d85bdd8-dd32-11e9-a410-00155d380115 > /dev/null 2>&1
+echo "Successfully stopped!"
